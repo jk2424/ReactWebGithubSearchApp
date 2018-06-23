@@ -72,7 +72,10 @@ class SearchForm extends Component {
     this.setState({
       [name]: event.target.value,
     });
+
   };
+
+
 
   render() {
     const { classes } = this.props;
