@@ -25,13 +25,17 @@ class App extends Component {
     starts: ''
   };
 
-  handleSearchSumbit = (language = '', stars = '') => {
-
+  handleSearchSubmit = (language = '', stars = '') => {
+    this.setState({
+      language,
+      stars,
+      searchInProgress:true
+    })
   }
 
   render() {
     const { classes } = this.props;
-    const { lanuage, stars } = this.state;
+    const { language, stars, searchInProgress } = this.state;
 
     return (
       <main>
@@ -39,11 +43,11 @@ class App extends Component {
 
         <section className={classes.withGradient}>
           <section className={classes.contentWrapper}>
-            <SearchForm />
+            <SearchForm handleSearchSubmit= {this.handleSearchSubmit} />
           </section>
 
           <section>
-            <SearchResults />
+            <SearchResults language={language} stars={stars} searchInProgress={searchInProgress}/>
           </section>
         </section>
       </main>

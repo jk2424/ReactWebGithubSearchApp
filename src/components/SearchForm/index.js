@@ -66,11 +66,13 @@ class SearchForm extends Component {
   state = {
     language: '',
     stars: '',
+    searchInProgress: false
   };
 
   handleInputChange = name => event => {
     this.setState({
       [name]: event.target.value,
+      searchInProgress: true
     });
 
   };
@@ -80,7 +82,7 @@ class SearchForm extends Component {
   }
 
   render() {
-    const { classes, handleSearchSumbit} = this.props;
+    const { classes, handleSearchSubmit} = this.props;
     const { language, stars } = this.state;
 
     return (
@@ -130,14 +132,15 @@ class SearchForm extends Component {
             }}
           />
 
-          < Button
-          varient= "contained"
-          className= {classes.button}
-          onclick={() => handleSearchSumbit('language', 'stars')}
-          >
-          Search
-          </Button>
+
         </section>
+        <Button
+          variant="contained"
+          className={classes.button}
+          onClick={() => handleSearchSubmit(language, stars)}
+        >
+          Search
+        </Button>
       </section>
     );
   }
