@@ -1,11 +1,19 @@
 import React, { Component } from 'react';
+import ResultsGridItem from './ResultsGridItem';
 
-const ResultsGrid = () => {
-  return (
-    <div>
-Hello
-    </div>
+
+const styles = {
+  display: 'flex',
+  flexWrap: 'wrap',
+  height:700
+}
+
+const ResultsGrid = ({repos}) => (
+    <section style={styles}>
+      {repos.length && repos.map(repo =>
+        <ResultsGridItem key={repo.id} repo={repo} />
+      )}
+    </section>
   );
-};
 
 export default ResultsGrid;

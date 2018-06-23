@@ -66,17 +66,13 @@ class SearchForm extends Component {
   state = {
     language: "",
     stars: "",
-    searchInProgress: false
   };
 
   handleInputChange = name => event => {
     this.setState({
       [name]: event.target.value,
-      searchInProgress: true
     });
   };
-
-  componentDidMount = () => {};
 
   render() {
     const { classes, handleSearchSubmit } = this.props;

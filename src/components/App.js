@@ -33,7 +33,7 @@ class App extends Component {
     });
   };
 
-  handleSearchSubmit = () => this.setState({ searchInProgress: false });
+ResetSearch = () => this.setState({ searchInProgress: false });
 
   render() {
     const { classes } = this.props;
@@ -53,7 +53,7 @@ class App extends Component {
             language={language}
             stars={stars}
             searchInProgress={searchInProgress}
-            resetSearch={this.resetSearch}
+            resetSearch={this.ResetSearch}
           />
         </section>
       </main>

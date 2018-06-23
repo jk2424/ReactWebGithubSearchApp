@@ -33,7 +33,7 @@ class SearchResults extends Component {
   };
 
   render() {
-    return <ResultsGrid />
+    return <ResultsGrid repos={this.state.repos}/>
   }
 }
 
