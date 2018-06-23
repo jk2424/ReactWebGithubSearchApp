@@ -1,71 +1,71 @@
-import React, { Component } from 'react';
-import Typography from '@material-ui/core/Typography';
-import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button';
-import { withStyles } from '@material-ui/core/styles';
+import React, { Component } from "react";
+import Typography from "@material-ui/core/Typography";
+import TextField from "@material-ui/core/TextField";
+import Button from "@material-ui/core/Button";
+import { withStyles } from "@material-ui/core/styles";
 
-import { SEARCH_FORM_HEADING_TEXT } from '../../constants';
+import { SEARCH_FORM_HEADING_TEXT } from "../../constants";
 
 const styles = {
   searchForm: {
-    marginTop: 50,
+    marginTop: 50
   },
 
   formWrapper: {
-    display: 'flex',
-    marginTop: 30,
+    display: "flex",
+    marginTop: 30
   },
 
   headingText: {
     fontWeight: 300,
     letterSpacing: 1,
-    color: '#fff',
+    color: "#fff"
   },
 
   textFieldLabel: {
-    color: '#fff',
+    color: "#fff"
   },
 
   textFieldLarge: {
     width: 100,
-    marginRight: 80,
+    marginRight: 80
   },
 
   textFieldSmall: {
-    width: 80,
+    width: 80
   },
 
   cssUnderline: {
-    '&:before': {
-      borderBottomColor: '#fff',
+    "&:before": {
+      borderBottomColor: "#fff"
     },
-    '&:after': {
-      borderBottomColor: '#fff',
-    },
+    "&:after": {
+      borderBottomColor: "#fff"
+    }
   },
 
   cssLabel: {
-    color: '#fff',
-    '&$cssFocused': {
-      color: '#fff',
-    },
+    color: "#fff",
+    "&$cssFocused": {
+      color: "#fff"
+    }
   },
 
   cssFocused: {},
 
   button: {
     marginTop: 50,
-    background: 'linear-gradient(135deg,#fd853a 0%,#fd6e37 100%)',
-    color: '#fff',
+    background: "linear-gradient(135deg,#fd853a 0%,#fd6e37 100%)",
+    color: "#fff",
     letterSpacing: 1,
-    boxShadow: 'none',
-  },
+    boxShadow: "none"
+  }
 };
 
 class SearchForm extends Component {
   state = {
-    language: '',
-    stars: '',
+    language: "",
+    stars: "",
     searchInProgress: false
   };
 
@@ -74,15 +74,12 @@ class SearchForm extends Component {
       [name]: event.target.value,
       searchInProgress: true
     });
-
   };
 
-  componentDidMount = () => {
-
-  }
+  componentDidMount = () => {};
 
   render() {
-    const { classes, handleSearchSubmit} = this.props;
+    const { classes, handleSearchSubmit } = this.props;
     const { language, stars } = this.state;
 
     return (
@@ -97,18 +94,18 @@ class SearchForm extends Component {
             label="Language"
             value={language}
             className={classes.textFieldLarge}
-            onChange={this.handleInputChange('language')}
+            onChange={this.handleInputChange("language")}
             InputLabelProps={{
               FormLabelClasses: {
                 root: classes.cssLabel,
-                focused: classes.cssFocused,
-              },
+                focused: classes.cssFocused
+              }
             }}
             InputProps={{
               classes: {
                 root: classes.textFieldLabel,
-                underline: classes.cssUnderline,
-              },
+                underline: classes.cssUnderline
+              }
             }}
           />
 
@@ -117,22 +114,20 @@ class SearchForm extends Component {
             label="Stars"
             value={stars}
             className={classes.textFieldSmall}
-            onChange={this.handleInputChange('stars')}
+            onChange={this.handleInputChange("stars")}
             InputLabelProps={{
               FormLabelClasses: {
                 root: classes.cssLabel,
-                focused: classes.cssFocused,
-              },
+                focused: classes.cssFocused
+              }
             }}
             InputProps={{
               classes: {
                 root: classes.textFieldLabel,
-                underline: classes.cssUnderline,
-              },
+                underline: classes.cssUnderline
+              }
             }}
           />
-
-
         </section>
         <Button
           variant="contained"
@@ -145,6 +140,5 @@ class SearchForm extends Component {
     );
   }
 }
-
 
 export default withStyles(styles)(SearchForm);
