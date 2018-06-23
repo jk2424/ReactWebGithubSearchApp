@@ -3,6 +3,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import { withStyles } from '@material-ui/core/styles';
 
 import SearchForm from './SearchForm';
+import SearchResults from './SearchResults';
 
 const styles = {
   withGradient: {
@@ -19,8 +20,18 @@ const styles = {
 };
 
 class App extends Component {
+  state={
+    language: '',
+    starts: ''
+  };
+
+  handleSearchSumbit = (language = '', stars = '') => {
+
+  }
+
   render() {
     const { classes } = this.props;
+    const { lanuage, stars } = this.state;
 
     return (
       <main>
@@ -29,6 +40,10 @@ class App extends Component {
         <section className={classes.withGradient}>
           <section className={classes.contentWrapper}>
             <SearchForm />
+          </section>
+
+          <section>
+            <SearchResults />
           </section>
         </section>
       </main>

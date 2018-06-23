@@ -75,10 +75,12 @@ class SearchForm extends Component {
 
   };
 
+  componentDidMount = () => {
 
+  }
 
   render() {
-    const { classes } = this.props;
+    const { classes, handleSearchSumbit} = this.props;
     const { language, stars } = this.state;
 
     return (
@@ -127,6 +129,14 @@ class SearchForm extends Component {
               },
             }}
           />
+
+          < Button
+          varient= "contained"
+          className= {classes.button}
+          onclick={() => handleSearchSumbit('language', 'stars')}
+          >
+          Search
+          </Button>
         </section>
       </section>
     );
